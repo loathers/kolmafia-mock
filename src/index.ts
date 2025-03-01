@@ -4,15 +4,8 @@ import { Skill } from "./Skill.js";
 import { Class } from "./Class.js";
 import { Path } from "./Path.js";
 import { Stat } from "./Stat.js";
+import { Familiar } from "./Familiar.js";
 
-export const kolmafia = await import("kolmafia");
-// kolmafia.Coinmaster = Coinmaster;
-// kolmafia.Item = Item;
-// kolmafia.Skill = Skill;
-// kolmafia.Class = Class;
-// kolmafia.Path = Path;
-// kolmafia.Stat = Stat;
+import { visitUrl } from "kolmafia";
 
-const { visitUrl } = kolmafia;
-
-export { Item, Coinmaster, Skill, Class, Path, Stat, visitUrl };
+export { Item, Coinmaster, Skill, Class, Path, Stat, Familiar, visitUrl };

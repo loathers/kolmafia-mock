@@ -5,7 +5,16 @@ type CoinmasterObject = {};
 export class Coinmaster {
   #coinmaster: CoinmasterObject;
 
-  static none = new Coinmaster({"token":"","item":"none","property":"","availableTokens":0,"buys":false,"sells":false,"nickname":"","shopid":""});
+  static none = new Coinmaster({
+    token: "",
+    item: "none",
+    property: "",
+    availableTokens: 0,
+    buys: false,
+    sells: false,
+    nickname: "",
+    shopid: "",
+  });
 
   private static cache = new Map<string, Coinmaster>([
     ["none", Coinmaster.none],
@@ -23,7 +32,7 @@ export class Coinmaster {
 
   static get(names: string[]): Coinmaster[];
   static get(name: string): Coinmaster;
-  static get(identifier: string | (string)[]) {
+  static get(identifier: string | string[]) {
     if (Array.isArray(identifier)) {
       return identifier.map((name) => Coinmaster.get(name));
     }
@@ -32,7 +41,7 @@ export class Coinmaster {
   }
 
   get token() {
-    return ""
+    return "";
   }
 
   get item() {
@@ -40,7 +49,7 @@ export class Coinmaster {
   }
 
   get property() {
-    return ""
+    return "";
   }
 
   get availableTokens() {
@@ -56,10 +65,10 @@ export class Coinmaster {
   }
 
   get nickname() {
-    return ""
+    return "";
   }
 
   get shopid() {
-    return ""
+    return "";
   }
 }

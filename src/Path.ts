@@ -2,19 +2,35 @@ import { data } from "./data.js";
 
 const paths = data.allPaths;
 
-type PathObject = Omit<NonNullable<NonNullable<typeof paths>["nodes"][0]>, "nodeId" | "__typename">;
+type PathObject = Omit<
+  NonNullable<NonNullable<typeof paths>["nodes"][0]>,
+  "nodeId" | "__typename"
+>;
 
 export class Path {
   #path: PathObject;
 
-  static none = new Path({ id: -1, name: "", enumName: "", image: "", isAvatar: false, article: "", pointsPreference: "", maximumPoints: 0, bucket: false, stomachCapacity: 0, liverCapacity: 0, spleenCapacity: 0 });
+  static none = new Path({
+    id: -1,
+    name: "",
+    enumName: "",
+    image: "",
+    isAvatar: false,
+    article: "",
+    pointsPreference: "",
+    maximumPoints: 0,
+    bucket: false,
+    stomachCapacity: 0,
+    liverCapacity: 0,
+    spleenCapacity: 0,
+  });
   // {"id":0,"name":"none","avatar":false,"image":"blank.gif","points":0,"familiars":true}
 
   private static cache = new Map<number, Path>([
     [0, Path.none],
     ...(paths?.nodes
-          .filter((c) => c !== null)
-          .map((path) => [path.id, new Path(path)] as [number, Path]) ?? [])
+      .filter((c) => c !== null)
+      .map((path) => [path.id, new Path(path)] as [number, Path]) ?? []),
   ]);
 
   private constructor(path?: PathObject) {
@@ -58,7 +74,7 @@ export class Path {
   }
 
   get image() {
-    return this.#path.image ?? "";  
+    return this.#path.image ?? "";
   }
 
   get points() {

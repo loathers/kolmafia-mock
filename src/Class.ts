@@ -5,19 +5,33 @@ import { Stat } from "./Stat.js";
 
 const classes = data.allClasses;
 
-type ClassObject = Omit<NonNullable<NonNullable<typeof classes>["nodes"][0]>, "nodeId" | "__typename">;
+type ClassObject = Omit<
+  NonNullable<NonNullable<typeof classes>["nodes"][0]>,
+  "nodeId" | "__typename"
+>;
 
 export class Class {
   #class: ClassObject;
 
-  static none = new Class({ id: -1, name: "", enumName: "", image: "", primeStatIndex: 0, stun: "", path: 0, stomachCapacity: 0, liverCapacity: 0, spleenCapacity: 0 });
+  static none = new Class({
+    id: -1,
+    name: "",
+    enumName: "",
+    image: "",
+    primeStatIndex: 0,
+    stun: "",
+    path: 0,
+    stomachCapacity: 0,
+    liverCapacity: 0,
+    spleenCapacity: 0,
+  });
   // {"id":-1,"primestat":"none","path":"none"}
 
   private static cache = new Map<number, Class>([
     [0, Class.none],
     ...(classes?.nodes
-          .filter((c) => c !== null)
-          .map((clazz) => [clazz.id, new Class(clazz)] as [number, Class]) ?? [])
+      .filter((c) => c !== null)
+      .map((clazz) => [clazz.id, new Class(clazz)] as [number, Class]) ?? []),
   ]);
 
   private constructor(clazz?: ClassObject) {
@@ -41,7 +55,8 @@ export class Class {
       return (
         Class.cache
           .entries()
-          .find(([, clazz]) => clazz.name === identifier)?.[0] ?? Class.none
+          .find(([, clazz]) => clazz.toString() === identifier)?.[0] ??
+        Class.none
       );
     }
 
@@ -49,23 +64,19 @@ export class Class {
   }
 
   toString() {
-    return this.name as ClassType;
+    return this.#class.name as ClassType;
   }
 
   get id() {
     return this.#class.id;
   }
 
-  get name() {
-    return this.#class.name;
-  }
-
   get primestat() {
-    return Stat.none;
+    return Stat.get(this.#class.primeStatIndex);
   }
 
   get path() {
-    return Path.none;
+    if (!this.#class.path) return Path.none;
+    return Path.get(this.#class.path);
   }
 }
-

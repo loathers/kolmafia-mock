@@ -7,11 +7,11 @@ export class Stat {
 
   static none = new Stat({ name: "" });
 
-  private static cache = new Map<string, Stat>([
-    ["", Stat.none],
-    ["Muscle", new Stat({ name: "Muscle" })],
-    ["Mysticality", new Stat({ name: "Mysticality" })],
-    ["Moxie", new Stat({ name: "Moxie" })],
+  private static cache = new Map<number, Stat>([
+    [-1, Stat.none],
+    [0, new Stat({ name: "Muscle" })],
+    [1, new Stat({ name: "Mysticality" })],
+    [2, new Stat({ name: "Moxie" })],
   ]);
 
   private constructor(stat?: StatObject) {
@@ -24,11 +24,19 @@ export class Stat {
     return [...Stat.cache.values()];
   }
 
-  static get(names: string[]): Stat[];
-  static get(name: string): Stat;
-  static get(identifier: string | string[]) {
+  static get(names: (string | number)[]): Stat[];
+  static get(name: string | number): Stat;
+  static get(identifier: string | number | (string | number)[]) {
     if (Array.isArray(identifier)) {
       return identifier.map((name) => Stat.get(name));
+    }
+
+    if (typeof identifier === "string") {
+      return (
+        Stat.cache
+          .entries()
+          .find(([, item]) => item.toString() === identifier)?.[0] ?? Stat.none
+      );
     }
 
     return Stat.cache.get(identifier) ?? Stat.none;
@@ -37,5 +45,4 @@ export class Stat {
   toString() {
     return this.#stat.name as StatType;
   }
-
 }

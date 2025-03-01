@@ -23,4 +23,10 @@ export const data = await client.query({
       __scalar: true,
     },
   },
+  allFamiliars: {
+    nodes: {
+      __scalar: true,
+      attributes: true,
+    },
+  },
 });

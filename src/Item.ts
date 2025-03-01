@@ -4,15 +4,30 @@ import { Skill } from "./Skill.js";
 
 const items = data.allItems;
 
-type ItemObject = Omit<NonNullable<NonNullable<typeof items>["nodes"][0]>, "nodeId" | "__typename">;
+type ItemObject = Omit<
+  NonNullable<NonNullable<typeof items>["nodes"][0]>,
+  "nodeId" | "__typename"
+>;
 
 export class Item {
   #item: ItemObject;
 
-  static none = new Item({"id":-1,"name":"","plural":"","descid":"","image":"","quest":false,"gift":false,"tradeable":false,"discardable":false,"autosell": 0, "ambiguous": false});
+  static none = new Item({
+    id: -1,
+    name: "",
+    plural: "",
+    descid: "",
+    image: "",
+    quest: false,
+    gift: false,
+    tradeable: false,
+    discardable: false,
+    autosell: 0,
+    ambiguous: false,
+  });
 
   private static cache = new Map<number, Item>([
-    [0, Item.none],
+    [-1, Item.none],
     ...(items?.nodes
       .filter((i) => i !== null)
       .map((item) => [item.id, new Item(item)] as [number, Item]) ?? []),
@@ -57,7 +72,7 @@ export class Item {
   get plural() {
     return this.#item.plural ?? this.#item.name + "s";
   }
-  
+
   get descid() {
     return this.#item.descid ?? "";
   }
@@ -144,10 +159,6 @@ export class Item {
 
   get discardable() {
     return this.#item.discardable;
-  }
-
-  get autosell() {
-    return this.#item.autosell;
   }
 
   get combat() {

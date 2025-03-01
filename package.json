@@ -5,12 +5,12 @@
   "dependencies": {
     "data-of-loathing": "^2.0.0",
     "entities": "^6.0.0",
-    "kolmafia": "^5.28397.0",
-    "vitest": "^3.0.7"
+    "kolmafia": "^5.28397.0"
   },
   "devDependencies": {
     "prettier": "^3.5.2",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.7"
   }
 }
