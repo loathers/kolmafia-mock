@@ -608,10 +608,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"data-of-loathing@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "data-of-loathing@npm:2.0.0"
-  checksum: 10c0/b9badc2f17d3d14cd30de86cb8b82af8f49e774ffbe56f57d8200b1be0a24ada12f568c314c7f08f0c17a6e49e6b465402a5420a902611809ee991da13b5ad8c
+"data-of-loathing@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "data-of-loathing@npm:2.0.1"
+  checksum: 10c0/91baf8e52e21c9c2a18cce1434914e1f314b01d5405f6b727ad197629ce40e11ba3939f0ca2809551289b3a32a553f4225bc6154776246cbbc7cd7b649c1dbf8
   languageName: node
   linkType: hard
 
@@ -969,20 +969,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "kolmafia-mock@workspace:."
   dependencies:
-    data-of-loathing: "npm:^2.0.0"
+    data-of-loathing: "npm:^2.0.1"
     entities: "npm:^6.0.0"
-    kolmafia: "npm:^5.28397.0"
-    prettier: "npm:^3.5.2"
+    kolmafia: "npm:^5.28405.0"
+    prettier: "npm:^3.5.3"
     tsx: "npm:^4.19.3"
     typescript: "npm:^5.8.2"
     vitest: "npm:^3.0.7"
   languageName: unknown
   linkType: soft
 
-"kolmafia@npm:^5.28397.0":
-  version: 5.28397.0
-  resolution: "kolmafia@npm:5.28397.0"
-  checksum: 10c0/27da5302df7f27b218dbd8a19e79520bbc2782a46fbf37b91b2a74bee1e5caf2659c0cfb8f72dddd91c26f611f9cc73dbd310d38fa2c28d07f236bc21fbf840f
+"kolmafia@npm:^5.28405.0":
+  version: 5.28405.0
+  resolution: "kolmafia@npm:5.28405.0"
+  checksum: 10c0/bc1d854ef23a6e9bc1f924c41c9c94768b56e09e2dcf7cfb86f87da5b56f7e6000e07763c9ede9d28731a3e86150d1fc8276917744f11c3cee3f0285a75ba394
   languageName: node
   linkType: hard
 
@@ -1240,12 +1240,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.5.2":
-  version: 3.5.2
-  resolution: "prettier@npm:3.5.2"
+"prettier@npm:^3.5.3":
+  version: 3.5.3
+  resolution: "prettier@npm:3.5.3"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/d7b597ed33f39c32ace675896ad187f06a3e48dc8a1e80051b5c5f0dae3586d53981704b8fda5ac3b080e6c2e0e197d239131b953702674f044351621ca5e1ac
+  checksum: 10c0/3880cb90b9dc0635819ab52ff571518c35bd7f15a6e80a2054c05dbc8a3aa6e74f135519e91197de63705bcb38388ded7e7230e2178432a1468005406238b877
   languageName: node
   linkType: hard
 

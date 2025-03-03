@@ -24,6 +24,25 @@ export class Item {
     discardable: false,
     autosell: 0,
     ambiguous: false,
+    consumableById: {
+      nodeId: "",
+      __typename: "Consumable",
+      id: -1,
+      stomach: 0,
+      liver: 0,
+      spleen: 0,
+      quality: "NONE",
+      levelRequirement: 0,
+      adventureRange: "",
+      adventures: 0,
+      muscle: 0,
+      muscleRange: "",
+      mysticality: 0,
+      mysticalityRange: "",
+      moxie: 0,
+      moxieRange: "",
+      notes: null,
+    },
   });
 
   private static cache = new Map<number, Item>([
@@ -86,39 +105,39 @@ export class Item {
   }
 
   get levelreq() {
-    return 0;
+    return this.#item.consumableById?.levelRequirement ?? 0;
   }
 
   get quality() {
-    return "";
+    return this.#item.consumableById?.quality ?? "";
   }
 
   get adventures() {
-    return "";
+    return this.#item.consumableById?.adventureRange ?? "";
   }
 
   get muscle() {
-    return "";
+    return this.#item.consumableById?.muscleRange ?? "";
   }
 
   get mysticality() {
-    return "";
+    return this.#item.consumableById?.mysticalityRange ?? "";
   }
 
   get moxie() {
-    return "";
+    return this.#item.consumableById?.moxieRange ?? "";
   }
 
   get fullness() {
-    return 0;
+    return this.#item.consumableById?.stomach ?? 0;
   }
 
   get inebriety() {
-    return 0;
+    return this.#item.consumableById?.liver ?? 0;
   }
 
   get spleen() {
-    return 0;
+    return this.#item.consumableById?.spleen ?? 0;
   }
 
   get minhp() {
@@ -142,7 +161,7 @@ export class Item {
   }
 
   get notes() {
-    return "";
+    return this.#item.consumableById?.notes ?? "";
   }
 
   get quest() {

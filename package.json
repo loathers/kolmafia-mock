@@ -3,12 +3,12 @@
   "packageManager": "yarn@4.6.0",
   "type": "module",
   "dependencies": {
-    "data-of-loathing": "^2.0.0",
+    "data-of-loathing": "^2.0.1",
     "entities": "^6.0.0",
-    "kolmafia": "^5.28397.0"
+    "kolmafia": "^5.28405.0"
   },
   "devDependencies": {
-    "prettier": "^3.5.2",
+    "prettier": "^3.5.3",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
     "vitest": "^3.0.7"

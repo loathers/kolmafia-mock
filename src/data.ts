@@ -6,6 +6,9 @@ export const data = await client.query({
   allItems: {
     nodes: {
       __scalar: true,
+      consumableById: {
+        __scalar: true,
+      },
     },
   },
   allClasses: {
