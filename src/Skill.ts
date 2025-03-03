@@ -131,7 +131,5 @@ export class Skill {
     return "";
   }
 
-  get timescast() {
-    return 0;
-  }
+  timescast = 0;
 }

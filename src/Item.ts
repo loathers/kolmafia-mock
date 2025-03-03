@@ -156,9 +156,7 @@ export class Item {
     return 0;
   }
 
-  get dailyusesleft() {
-    return 2147483647;
-  }
+  dailyusesleft = 2147483647;
 
   get notes() {
     return this.#item.consumableById?.notes ?? "";
@@ -252,9 +250,7 @@ export class Item {
     return Skill.none;
   }
 
-  get tcrsName() {
-    return "";
-  }
+  tcrsName = "";
 
   get skill() {
     return Skill.none;

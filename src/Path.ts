@@ -77,9 +77,7 @@ export class Path {
     return this.#path.image ?? "";
   }
 
-  get points() {
-    return 0;
-  }
+  points = 0;
 
   get familiars() {
     return false;

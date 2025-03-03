@@ -52,9 +52,7 @@ export class Coinmaster {
     return "";
   }
 
-  get availableTokens() {
-    return 0;
-  }
+  availableTokens = 0;
 
   get buys() {
     return false;
